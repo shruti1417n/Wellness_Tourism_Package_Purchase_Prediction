@@ -22,15 +22,11 @@ mlflow.set_experiment("mlops-training-experiment")
 api = HfApi()
 
 
-#Xtrain_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/Xtrain.csv"
-#Xtest_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/Xtest.csv"
-#ytrain_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/ytrain.csv"
-#ytest_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/ytest.csv"
-
 Xtrain_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/Xtrain.csv"
 Xtest_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/Xtest.csv"
 ytrain_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/ytrain.csv"
 ytest_path = "hf://datasets/ShrutiHulyal/WellnessPackagePrediction/ytest.csv"
+
 
 Xtrain = pd.read_csv(Xtrain_path)
 Xtest = pd.read_csv(Xtest_path)
@@ -145,7 +141,7 @@ with mlflow.start_run():
     model_path = "best_wellness_tourism_model_v1.joblib"
     joblib.dump(best_model, model_path)
 
-    
+
     # Log the model artifact
     mlflow.log_artifact(model_path, artifact_path="model")
     print(f"Model saved as artifact at: {model_path}")

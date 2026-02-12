@@ -7,7 +7,7 @@ repo_id = "ShrutiHulyal/WellnessPackagePrediction"
 repo_type = "dataset"
 
 # Initialize API client
-api = HfApi(token=os.getenv("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"))
+api = HfApi(token=os.getenv("tourism"))
 
 # Step 1: Check if the space exists
 try:
